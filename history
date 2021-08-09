@@ -1,0 +1,182 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(ChangersApp());
+
+
+class ChangersApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'HISTORY',
+      theme: appTheme,
+      initialRoute: MyApp.routeName,
+      getPages: appRoutes,
+    );
+  },
+},
+
+class HISTORY extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('HISTORY'),
+        backgroundColor: Colors.purpleAccent, //이거 변경을 어케 하는지 몰겠음 일단 지정만 함
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: HomeBody(),
+      floatingActionButton:
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+        SizedBox(
+        height: 200,
+        width: 200,
+        child: Image.asset('images/eye.png')),
+
+    SizedBox
+    (height: 200,
+    width: 200,
+    child: Image.asset('images/store.png')),
+
+    SizedBox(
+    height: 200,
+    width: 200,
+    child: Image.asset('images/heart.png')),
+        child: Icon(Icons, thumb_up),
+        onPressed: (){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('좋아요'),
+              duration: Duration(seconds: 3),
+    ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30.0,40.0,0.0,0.0)//영혜님 올려준 changers_ok봤는데
+        // 이 내용이 어디 들어가있는지 몰라서 일단 임의 지정함
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('회사명회사명',
+            style: TextStyle(
+              color: Color.black,
+              letterSpacing: 2.0,
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold//body KR Bold/15
+            ),
+      ),
+      SizedBox(
+        height: 10.0,
+      ),
+            Text('sdfl***',
+              style: TextStyle(
+                color: Colors.black,
+                letterSpacing: 2.0,
+                fontSize: 15.0, //body KR Regular/15
+              ),),
+
+      Text('채택안의 제목이 여기에 이렇게 들어갑니다',
+      style: TextStyle(
+        color: Colors.black,
+        letterSpacing: 2.0,
+        fontSize: 15.0, //body KR Regular/15
+      ),),
+            SizedBox(
+              height: 30.0,
+            ),
+
+            Text('#히스토리용태그   #히스토리용태그',
+              style: TextStyle(
+                  color: Color.black,
+                  letterSpacing: 2.0,
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold//body KR Bold/15
+              ),
+            ),
+            SizedBox(
+              height: 20.0
+            ),
+            Row(
+              children: <Widget>[
+                Icon(Icons.check_circle_outline),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text('찬성',
+                style: TextStyle(
+                  fontSize: 15.0,
+                  letterSpacing: 2.0
+                )),
+              ],
+            )
+
+            Row(
+              children: <Widget>[
+                Icon(Icons.check_circle_outline),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text('반대',
+                    style: TextStyle(
+                        fontSize: 15.0,
+                        letterSpacing: 2.0
+                    )),
+              ],
+            )
+
+              ),
+    }
+    }
+
+      ],
+      )
+      ),
+    );
+  }
+}
+
+class HomeBody extends StatelessWidget {
+  const HomeBody({key key}) : super(key: key);
+
+  Widget build(BuildContext context) {
+    return Center(
+        child: ElevatedButton(
+          child: Text('저장'),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder:(context) => SecondPage()),
+    );
+    },
+    ),
+
+class SecondPage extends StatelessWidget{
+          const Second({Key key}) : super(key: key);
+
+          Widget build(BuildContext context) {
+            return Scaffold(
+            appBar: AppBar(
+            title: Text('저장된 내용'),
+            ),
+            body: Center(
+              child: Text('"저장되었습니다"'),
+              style: TextStyle(
+                fontSize: 15.0
+                color: Color.Colors.black
+    ),
+    ),
+            ),
+    }
+
+    },
+    };
+
+//회사명회사명         투표종료
+//sdfl***
+//
+//채택안의 제목이 여기에 이렇게 들어갑니다.
+//#히스토리용태그   #히스토리용태그
+//
+//
+//15일전   눈 저장 하트
+//
+//찬성 막대그래프  70%
+//반대 막대그래프 30%
